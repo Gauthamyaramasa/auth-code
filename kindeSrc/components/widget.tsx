@@ -2,6 +2,7 @@
 
 import { getKindeWidget, getLogoUrl } from "@kinde/infrastructure";
 import React from "react";
+import { AnimatedSphere } from "./animated-sphere";
 
 type WidgetProps = {
   heading: string;
@@ -100,9 +101,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
             <h2>Redesign faster with real website context.</h2>
             <p>Paste a site, capture its brand, and turn it into a cleaner landing page with production-ready code.</p>
           </div>
-          <div className="sphere-wrap" aria-hidden="true">
-            <canvas id="resetui-auth-sphere" />
-          </div>
+          <AnimatedSphere />
         </div>
       </div>
 
