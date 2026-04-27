@@ -33,6 +33,7 @@ export const Root = ({
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <style>{getStyles()}</style>
+        <script src="/sphere.js" defer></script>
       </head>
 
       <body>
