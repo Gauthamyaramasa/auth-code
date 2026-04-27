@@ -31,11 +31,6 @@ const styles: {
     width: "100%",
     margin: "0 auto",
     minInlineSize: "2rem",
-    padding: "clamp(1.5rem, 2.6vw, 3rem)",
-    border: "1px solid #e4e3df",
-    borderRadius: "clamp(18px, 3vw, 28px)",
-    backgroundColor: "#ffffff",
-    boxShadow: "0 24px 70px rgba(26, 26, 23, 0.06)",
   },
   loginFormWrapper: {
     boxSizing: "border-box",
