@@ -11,7 +11,11 @@ const DefaultPage: React.FC<KindePageEvent> = ({ context, request }) => {
   return (
     <Root context={context} request={request}>
       <DefaultLayout>
-        <Widget heading={context.widget.content.heading} />
+        <Widget
+          heading={context.widget.content.heading}
+          description={context.widget.content.description}
+          pageTitle={context.widget.content.page_title}
+        />
       </DefaultLayout>
     </Root>
   );

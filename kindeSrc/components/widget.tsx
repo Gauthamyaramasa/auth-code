@@ -5,6 +5,8 @@ import React from "react";
 
 type WidgetProps = {
   heading: string;
+  description?: string;
+  pageTitle?: string;
 };
 
 const styles: {
@@ -95,24 +97,24 @@ const styles: {
   },
 };
 
-const getDescription = (heading: string, fallback: string) => {
-  const normalizedHeading = heading.toLowerCase();
+const getDescription = (heading: string, pageTitle: string | undefined, fallback: string | undefined) => {
+  const normalizedPage = `${pageTitle ?? ""} ${heading}`.toLowerCase();
   const isConfirmSignIn =
-    normalizedHeading.includes("confirm") &&
-    (normalizedHeading.includes("signin") || normalizedHeading.includes("sign in"));
+    normalizedPage.includes("confirm") &&
+    (normalizedPage.includes("signin") || normalizedPage.includes("sign in"));
 
   if (isConfirmSignIn) {
-    return "Please check your inbox. If you don't see the email, check your spam or promotions folder.";
+    return "Please check your inbox for the sign-in code. If you don't see it, check your spam or promotions folder.";
   }
 
-  return fallback;
+  return fallback ?? "Join the waitlist and we'll notify you when your beta invite is ready.";
 };
 
-export const Widget: React.FC<WidgetProps> = ({ heading }) => {
+export const Widget: React.FC<WidgetProps> = ({ heading, description: contentDescription, pageTitle }) => {
   const isSignIn = heading.toLowerCase().includes("signin") || heading.toLowerCase().includes("sign in");
-  const description = isSignIn
+  const fallbackDescription = isSignIn
     ? "Welcome back. Sign in to continue building."
-    : "Join the waitlist & we'll notify you when your beta invite is ready.";
+    : contentDescription ?? "Join the waitlist & we'll notify you when your beta invite is ready.";
 
   return (
     <article style={styles.widgetWrapper}>
@@ -135,7 +137,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
             <span>ResetUI</span>
           </div>
           <h1 style={styles.heading}>{heading}</h1>
-          <p style={styles.description}>{getDescription(heading, description)}</p>
+          <p style={styles.description}>{getDescription(heading, pageTitle, fallbackDescription)}</p>
 
           {getKindeWidget()}
         </div>
