@@ -96,6 +96,11 @@ const styles: {
 };
 
 export const Widget: React.FC<WidgetProps> = ({ heading }) => {
+  const isSignIn = heading.toLowerCase().includes("signin") || heading.toLowerCase().includes("sign in");
+  const description = isSignIn
+    ? "Welcome back. Sign in to continue building."
+    : "Join the waitlist & we'll notify you when your beta invite is ready.";
+
   return (
     <article style={styles.widgetWrapper}>
       <div className="sidepanel">
@@ -117,9 +122,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
             <span>ResetUI</span>
           </div>
           <h1 style={styles.heading}>{heading}</h1>
-          <p style={styles.description}>
-            Join the waitlist and we&apos;ll notify you when your beta invite is ready.
-          </p>
+          <p style={styles.description}>{description}</p>
 
           {getKindeWidget()}
         </div>
