@@ -7,6 +7,8 @@ type WidgetProps = {
   heading: string;
   description?: string;
   pageTitle?: string;
+  actionHref?: string;
+  actionLabel?: string;
 };
 
 const styles: {
@@ -17,6 +19,7 @@ const styles: {
   description: React.CSSProperties;
   brand: React.CSSProperties;
   brandMark: React.CSSProperties;
+  actionLink: React.CSSProperties;
   signInPrompt: React.CSSProperties;
   signInLink: React.CSSProperties;
 } = {
@@ -83,6 +86,23 @@ const styles: {
     background: "#ffffff",
     objectFit: "contain",
   },
+  actionLink: {
+    boxSizing: "border-box",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    minHeight: "48px",
+    margin: "0 auto 2rem",
+    borderRadius: "12px",
+    border: "1px solid #1a1a17",
+    backgroundColor: "#1a1a17",
+    color: "#fafaf8",
+    fontSize: "14px",
+    fontWeight: 700,
+    lineHeight: 1,
+    textDecoration: "none",
+  },
   signInPrompt: {
     margin: "1rem 0 0",
     textAlign: "center",
@@ -110,7 +130,13 @@ const getDescription = (heading: string, pageTitle: string | undefined, fallback
   return fallback ?? "Join the waitlist and we'll notify you when your beta invite is ready.";
 };
 
-export const Widget: React.FC<WidgetProps> = ({ heading, description: contentDescription, pageTitle }) => {
+export const Widget: React.FC<WidgetProps> = ({
+  heading,
+  description: contentDescription,
+  pageTitle,
+  actionHref,
+  actionLabel,
+}) => {
   const isSignIn = heading.toLowerCase().includes("signin") || heading.toLowerCase().includes("sign in");
   const fallbackDescription = isSignIn
     ? "Welcome back. Sign in to continue building."
@@ -138,6 +164,12 @@ export const Widget: React.FC<WidgetProps> = ({ heading, description: contentDes
           </div>
           <h1 style={styles.heading}>{heading}</h1>
           <p style={styles.description}>{getDescription(heading, pageTitle, fallbackDescription)}</p>
+
+          {actionHref && actionLabel ? (
+            <a href={actionHref} style={styles.actionLink}>
+              {actionLabel}
+            </a>
+          ) : null}
 
           {getKindeWidget()}
         </div>
