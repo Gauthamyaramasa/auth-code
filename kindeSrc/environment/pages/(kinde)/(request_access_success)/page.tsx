@@ -15,8 +15,8 @@ const RequestAccessSuccessPage: React.FC<KindePageEvent> = ({ context, request }
           heading={context.widget.content.heading}
           description={context.widget.content.description}
           pageTitle={context.widget.content.page_title}
-          actionHref="/"
-          actionLabel="← Back to home"
+          actionHref="http://localhost:3000"
+          actionLabel="Back to Home"
         />
       </DefaultLayout>
     </Root>
