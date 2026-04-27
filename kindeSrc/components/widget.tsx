@@ -95,6 +95,19 @@ const styles: {
   },
 };
 
+const getDescription = (heading: string, fallback: string) => {
+  const normalizedHeading = heading.toLowerCase();
+  const isConfirmSignIn =
+    normalizedHeading.includes("confirm") &&
+    (normalizedHeading.includes("signin") || normalizedHeading.includes("sign in"));
+
+  if (isConfirmSignIn) {
+    return "Please check your inbox. If you don't see the email, check your spam or promotions folder.";
+  }
+
+  return fallback;
+};
+
 export const Widget: React.FC<WidgetProps> = ({ heading }) => {
   const isSignIn = heading.toLowerCase().includes("signin") || heading.toLowerCase().includes("sign in");
   const description = isSignIn
@@ -122,7 +135,7 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
             <span>ResetUI</span>
           </div>
           <h1 style={styles.heading}>{heading}</h1>
-          <p style={styles.description}>{description}</p>
+          <p style={styles.description}>{getDescription(heading, description)}</p>
 
           {getKindeWidget()}
         </div>
