@@ -219,10 +219,11 @@ export const getStyles = (): string => `
     opacity: 0.82;
   }
 
-  .sphere-wrap canvas {
+  .sphere-wrap video {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 
   @media only screen and (min-width: 1200px) and (max-width: 1500px) {
