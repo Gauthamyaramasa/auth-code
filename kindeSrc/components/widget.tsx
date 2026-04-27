@@ -185,14 +185,6 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
           <p style={styles.description}>
             Join the waitlist and we&apos;ll notify you when your beta invite is ready.
           </p>
-
-          {getKindeWidget()}
-          <p style={styles.signInPrompt}>
-            Got beta access?{" "}
-            <a href={getKindeLoginUrl()} style={styles.signInLink}>
-              Sign In
-            </a>
-          </p>
         </div>
       </main>
     </article>
