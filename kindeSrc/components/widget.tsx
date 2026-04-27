@@ -27,11 +27,11 @@ const styles: {
   },
   loginForm: {
     boxSizing: "border-box",
-    maxWidth: "min(620px, 100%)",
+    maxWidth: "min(560px, 100%)",
     width: "100%",
     margin: "0 auto",
     minInlineSize: "2rem",
-    padding: "clamp(1.5rem, 3vw, 3.5rem)",
+    padding: "clamp(1.5rem, 2.6vw, 3rem)",
     border: "1px solid #e4e3df",
     borderRadius: "clamp(18px, 3vw, 28px)",
     backgroundColor: "#ffffff",
