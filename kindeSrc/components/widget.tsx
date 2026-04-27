@@ -88,7 +88,7 @@ const styles: {
   },
   actionLink: {
     boxSizing: "border-box",
-    display: "inline-flex",
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     width: "fit-content",
