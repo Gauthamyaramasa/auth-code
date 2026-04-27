@@ -74,7 +74,12 @@ export const getStyles = (): string => `
   [data-kinde-widget],
   form {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .resetui-auth-form [data-kinde-widget],
+  .resetui-auth-form form {
+    padding-inline: 2px;
   }
 
   input,

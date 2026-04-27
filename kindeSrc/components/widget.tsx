@@ -26,7 +26,7 @@ const styles: {
     overflow: "hidden",
   },
   loginForm: {
-    maxWidth: "420px",
+    maxWidth: "460px",
     width: "100%",
     margin: "0 auto",
     minInlineSize: "2rem",
@@ -62,7 +62,7 @@ const styles: {
     alignItems: "center",
     justifyContent: "center",
     gap: "0.75rem",
-    marginBottom: "3rem",
+    marginBottom: "2.15rem",
     color: "#1a1a17",
     fontWeight: 700,
     fontSize: "20px",
@@ -109,9 +109,11 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
                 (() => {
                   const canvas = document.getElementById("resetui-auth-sphere");
                   if (!canvas) return;
+                  if (canvas.dataset.ready === "true") return;
+                  canvas.dataset.ready = "true";
                   const ctx = canvas.getContext("2d");
                   if (!ctx) return;
-                  const chars = "░▒▓█▀▄▌▐│─┤├┴┬╭╮╰╯";
+                  const chars = ".:-=+*#%@";
                   let time = 0;
                   let frame = 0;
                   const resize = () => {
