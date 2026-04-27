@@ -2,7 +2,6 @@
 
 import { getKindeWidget, getLogoUrl } from "@kinde/infrastructure";
 import React from "react";
-import { AnimatedSphere } from "./animated-sphere";
 
 type WidgetProps = {
   heading: string;
@@ -27,18 +26,28 @@ const styles: {
     overflow: "hidden",
   },
   loginForm: {
-    maxWidth: "460px",
+    boxSizing: "border-box",
+    maxWidth: "min(620px, 100%)",
     width: "100%",
     margin: "0 auto",
     minInlineSize: "2rem",
+    padding: "clamp(1.5rem, 3vw, 3.5rem)",
+    border: "1px solid #e4e3df",
+    borderRadius: "clamp(18px, 3vw, 28px)",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 24px 70px rgba(26, 26, 23, 0.06)",
   },
   loginFormWrapper: {
+    boxSizing: "border-box",
     display: "flex",
-    padding: "clamp(2rem, 3.2vw, 4rem)",
+    alignItems: "center",
+    padding: "clamp(1rem, 4vw, 5rem)",
     flexDirection: "column",
     justifyContent: "center",
     flex: "1 1 50%",
     minWidth: 0,
+    width: "100%",
+    maxWidth: "100%",
     backgroundColor: "#fafaf8",
   },
   heading: {
@@ -52,7 +61,7 @@ const styles: {
   },
   description: {
     margin: "0 auto 2rem",
-    maxWidth: "38ch",
+    maxWidth: "42ch",
     textAlign: "center",
     color: "#6f6d66",
     fontSize: "15px",
@@ -101,7 +110,6 @@ export const Widget: React.FC<WidgetProps> = ({ heading }) => {
             <h2>Redesign faster with real website context.</h2>
             <p>Paste a site, capture its brand, and turn it into a cleaner landing page with production-ready code.</p>
           </div>
-          <AnimatedSphere />
         </div>
       </div>
 

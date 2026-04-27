@@ -77,6 +77,11 @@ export const getStyles = (): string => `
     overflow: visible;
   }
 
+  .resetui-auth-form {
+    box-sizing: border-box;
+    max-width: calc(100vw - 2rem);
+  }
+
   .resetui-auth-form [data-kinde-widget],
   .resetui-auth-form form {
     padding-inline: 2px;
@@ -147,6 +152,11 @@ export const getStyles = (): string => `
     height: 100%;
     min-height: 620px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: clamp(3rem, 7vw, 7rem);
+    box-sizing: border-box;
   }
 
   .resetui-logo-mark {
@@ -175,10 +185,7 @@ export const getStyles = (): string => `
   }
 
   .visual-copy {
-    position: absolute;
-    left: clamp(2.5rem, 6vw, 6rem);
-    top: clamp(2.5rem, 7vh, 5rem);
-    max-width: 360px;
+    max-width: 620px;
     z-index: 2;
   }
 
@@ -196,7 +203,7 @@ export const getStyles = (): string => `
   .visual-copy h2 {
     margin: 0;
     color: #1a1a17;
-    font-size: clamp(48px, 6vw, 82px);
+    font-size: clamp(58px, 6vw, 94px);
     line-height: 0.95;
     font-weight: 400;
     letter-spacing: -0.06em;
@@ -207,65 +214,49 @@ export const getStyles = (): string => `
     color: #6f6d66;
     font-size: 15px;
     line-height: 1.8;
-    max-width: 34ch;
-  }
-
-  .sphere-wrap {
-    position: absolute;
-    right: clamp(1.5rem, 4vw, 4rem);
-    bottom: clamp(2rem, 6vh, 4rem);
-    width: min(385px, 34vw);
-    aspect-ratio: 1;
-    opacity: 0.82;
-  }
-
-  .sphere-wrap video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 42ch;
   }
 
   @media only screen and (min-width: 1200px) and (max-width: 1500px) {
     .visual-copy {
-      max-width: 330px;
+      max-width: 560px;
     }
 
     .visual-copy h2 {
-      font-size: clamp(42px, 4.6vw, 68px);
+      font-size: clamp(50px, 5vw, 78px);
       line-height: 0.98;
     }
 
     .visual-copy p {
       font-size: 14px;
-      max-width: 32ch;
-    }
-    
-    .sphere-wrap {
-      width: min(360px, 32vw);
+      max-width: 40ch;
     }
   }
 
   @media only screen and (min-width: 1024px) and (max-width: 1199px) {
     .visual-copy {
-      max-width: 300px;
+      max-width: 460px;
     }
 
     .visual-copy h2 {
-      font-size: clamp(38px, 4.8vw, 54px);
+      font-size: clamp(42px, 5vw, 60px);
       line-height: 1;
     }
 
     .visual-copy p {
       font-size: 13px;
       line-height: 1.7;
-      max-width: 29ch;
+      max-width: 36ch;
     }
   }
 
   @media only screen and (max-width: 1023px) {
     main {
       min-height: 100vh;
+    }
+
+    .resetui-auth-form {
+      max-width: calc(100vw - 1rem);
     }
   }
 `;
